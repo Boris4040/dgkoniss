@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ÇOOOOK</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #c91f1f, #7e0000);
+    font-family: 'Great Vibes', cursive;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .cake-container, .envelope-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .prompt-text {
+    font-size: 36px;
+    margin-top: 20px;
+    text-shadow: 2px 2px 0 black;
+    cursor: pointer;
+    user-select: none;
+  }
+  .hidden {
+    display: none;
+  }
+  svg {
+    cursor: pointer;
+    user-select: none;
+  }
+  .flame {
+    transition: opacity 0.3s ease;
+  }
+  .flame.off {
+    opacity: 0;
+  }
+  /* Zarf için */
+  .envelope-container {
+    width: 280px;
+    height: 180px;
+    perspective: 800px;
+    cursor: pointer;
+  }
+  .body {
+    fill: #fff8e1;
+    stroke: #5d4037;
+    stroke-width: 2;
+    rx: 8;
+  }
+  .fold-line {
+    stroke: #5d4037;
+    stroke-width: 2;
+  }
+  .flap-polygon {
+    fill: #ffe0b2;
+    stroke: #5d4037;
+    stroke-width: 2;
+  }
+  .heart {
+    fill: #e53935;
+    stroke: #b71c1c;
+    stroke-width: 1;
+    user-select: none;
+    pointer-events: auto;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Pasta ve mumları söndür -->
+  <div class="cake-container" id="cakePart">
+    <svg id="cake" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" style="width:280px;height:280px;">
+      <rect x="12" y="40" width="40" height="12" rx="2" fill="#f72c2c" stroke="#fcd8d8" stroke-width="2"/>
+      <rect x="16" y="30" width="32" height="10" rx="2" fill="#f72c2c" stroke="#fcd8d8" stroke-width="2"/>
+      <rect x="22" y="22" width="20" height="8" rx="2" fill="#f72c2c" stroke="#fcd8d8" stroke-width="2"/>
+      <line x1="26" y1="22" x2="26" y2="16" stroke="#6d4c41" stroke-width="2"/>
+      <line x1="32" y1="22" x2="32" y2="16" stroke="#6d4c41" stroke-width="2"/>
+      <line x1="38" y1="22" x2="38" y2="16" stroke="#6d4c41" stroke-width="2"/>
+      <circle id="flame1" class="flame" cx="26" cy="14" r="2" fill="#ff9800"/>
+      <circle id="flame2" class="flame" cx="32" cy="14" r="2" fill="#ff9800"/>
+      <circle id="flame3" class="flame" cx="38" cy="14" r="2" fill="#ff9800"/>
+    </svg>
+    <center> <div class="prompt-text" >Mumları Söndür
+	<br> Birkaç gün önce attığın küçüklük fotoğrafındaki pastaya benzetmeye çalıştım umarım olmuştur.
+	</div></center>
+  </div>
+
+  <!-- Zarf ve mektup -->
+  <div class="envelope-container hidden" id="envelopePart" title="Mektubu açmak için kalbe tıklayın">
+    <svg viewBox="0 0 180 120" xmlns="http://www.w3.org/2000/svg" >
+      <rect class="body" x="10" y="30" width="160" height="80" rx="8" />
+      <line class="fold-line" x1="10" y1="30" x2="90" y2="70" />
+      <line class="fold-line" x1="170" y1="30" x2="90" y2="70" />
+      <polygon class="flap-polygon" points="10,30 90,70 170,30" />
+      <path id="heart" class="heart" d="M90 60 Q85 55, 75 60 Q65 65, 90 90 Q115 65, 105 60 Q95 55, 90 60Z" />
+    </svg>
+    <center><div class="prompt-text">Mektubu Aç
+	<br> (Kalbe Tıkla)
+	</div></center>
+  </div>
+
+<script>
+  const flames = [
+    document.getElementById('flame1'),
+    document.getElementById('flame2'),
+    document.getElementById('flame3')
+  ];
+
+  let extinguished = [false, false, false];
+
+  flames.forEach((flame, index) => {
+    flame.addEventListener('click', () => {
+      flame.classList.add('off');
+      extinguished[index] = true;
+
+      if (extinguished.every(v => v)) {
+        document.getElementById('cakePart').classList.add('hidden');
+        const envelope = document.getElementById('envelopePart');
+        envelope.classList.remove('hidden');
+      }
+    });
+  });
+
+  document.getElementById('heart').addEventListener('click', () => {
+    window.location.href = "sayfa4.html";
+  });
+</script>
+
+</body>
+</html>

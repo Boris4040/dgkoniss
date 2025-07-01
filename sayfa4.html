@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEVİYORUUMMMM</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #c91f1f, #7e0000);
+      font-family: 'Great Vibes', cursive;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .header {
+      width: 100%;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: bold;
+      padding: 20px 0 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 20px;
+      width: 100%;
+      max-width: 1100px;
+      box-sizing: border-box;
+      flex-wrap: nowrap;
+    }
+
+    .photo {
+      width: 200px;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      border: 5px solid white;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    .note-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid white;
+      border-radius: 16px;
+      padding: 20px;
+      text-shadow: 2px 2px 0 black;
+      font-size: 18px;
+      width: 350px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .note-box {
+        width: 90%;
+        max-width: 500px;
+      }
+
+      .photo-row {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+
+      .photo {
+        width: 130px;
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">DOĞUM GÜNÜN KUTLU OLSUN 🤍</div>
+
+  <!-- Mobilde bu sırayla: Yazı üstte, fotoğraflar alta -->
+  <!-- Masaüstünde: Fotoğraf - Yazı - Fotoğraf -->
+  <div class="container">
+
+    <!-- Sol Fotoğraf (masaüstü sol, mobil altta solda) -->
+    <div class="photo" style="background-image: url('https://i.postimg.cc/kX9GYxDF/1.webp');"></div>
+
+    <!-- Yazı Kutusu -->
+    <div class="note-box">
+      Yavrum, doğum günün kutlu olsun iyiki doğmuşsun iyiki varsın bitanem seni herşeyden çok seviyorum herşeyim hertanemsin benim umarım birazda olsa gülümsetmiştir bu yaptıklarım doğum gününde üzülmeyi değil en mutlu şekilde geçirmeyi hak ediyorsun her zaman dediğim gibi ne olursa olsun hep yanındayım balım inşallah hayatındaki herşey gönlünce olur hediye ve çiçek almayı isterdim fakat sen istemedin kararına saygı duyuyorum ama boşda geçemezdim umarım hoşuna gider bunlar tekrardan doğum günün kutlu olsun seni çooook seviyoruummm 🤍💗
+    </div>
+
+    <!-- Sağ Fotoğraf (masaüstü sağ, mobil altta sağda) -->
+    <div class="photo" style="background-image: url('https://i.postimg.cc/ZRt4BSdF/2.webp');"></div>
+
+  </div>
+
+</body>
+</html>
